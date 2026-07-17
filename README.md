@@ -51,7 +51,7 @@
 
 一条主轴（四问学习法）贯穿始终，其余 7 个工具挂在它的某一步上，或作为排障/升级工具随手调用。
 
-📌 **使用地图（一图看清 8 个 skill 的关系）**：[`skills/si-wen-xuexi-fa/assets/usage-map.html`](skills/si-wen-xuexi-fa/assets/usage-map.html)（点击节点可复制对应提示词）
+📌 **使用地图（一图看清 8 个 skill 的关系）**：[`skills/si-wen-xuexi-fa/assets/usage-map.png`](skills/si-wen-xuexi-fa/assets/usage-map.png)
 
 | 工作目标 | 主要入口 | 角色 |
 |---|---|---|
@@ -119,7 +119,7 @@ claude plugin install si-wen-xuexi-fa@four-question-learning
 ```
 four-question-learning/
 ├── skills/                     # 8 个可直接调用的 Skills（每个 = 一个文件夹）
-│   ├── si-wen-xuexi-fa/        # ★ 主框架，含 assets/usage-map.html 使用地图
+│   ├── si-wen-xuexi-fa/        # ★ 主框架，含 assets/usage-map.png 使用地图
 │   ├── faxian-moshi/
 │   ├── moshi-jujiao-xuexi/
 │   ├── xuexi-fangshi-dengji/

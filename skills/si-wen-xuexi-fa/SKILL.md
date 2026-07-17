@@ -13,7 +13,7 @@ related_skills: [faxian-moshi, moshi-jujiao-xuexi, xuexi-tiwen, cankao-daan-siwe
 
 # 四问学习法（听→找→变→用）
 
-> 📌 **整套 skill 的使用地图**：[`assets/usage-map.html`](assets/usage-map.html) —— 以四问学习法为主轴，"听/找/变/用"四步各挂一个深化工具，底部为排障与升级工具，一图看清 8 个 skill 的关系与调用入口。
+> 📌 **整套 skill 的使用地图**：[`assets/usage-map.png`](assets/usage-map.png) —— 以四问学习法为主轴，"听/找/变/用"四步各挂一个深化工具，底部为排障与升级工具，一图看清 8 个 skill 的关系与调用入口。
 
 ## R — 原文 (Reading)
 
