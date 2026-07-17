@@ -1,0 +1,17 @@
+timestamp	commit	skill	old_score	new_score	status	dimension	note	eval_mode
+2026-07-17T22:40	baseline	si-wen-xuexi-fa	-	82.8	baseline	-	结构62.1+dim8(20.7); dim4=4最弱	dry_run
+2026-07-17T22:40	baseline	faxian-moshi	-	79.9	baseline	-	结构59.2+dim8(20.7); dim4=4 dim3=7 dim5=7	dry_run
+2026-07-17T22:40	baseline	moshi-jujiao-xuexi	-	84.6	baseline	-	结构63.9+dim8(20.7); dim4=5最弱	dry_run
+2026-07-17T22:40	baseline	cankao-daan-siwei	-	82.2	baseline	-	结构59.2+dim8(23.0); dim4=4 dim3=7 dim5=7	dry_run
+2026-07-17T22:40	baseline	xuexi-tiwen	-	79.9	baseline	-	结构59.2+dim8(20.7); dim4=4 dim3=7 dim5=7	dry_run
+2026-07-17T22:40	baseline	xuexi-fangshi-dengji	-	81.6	baseline	-	结构60.9+dim8(20.7); dim4=4 dim3=7	dry_run
+2026-07-17T22:40	baseline	hudong-xuexi-talks	-	85.8	baseline	-	结构65.1+dim8(20.7); dim4=5最弱	dry_run
+2026-07-17T22:40	baseline	fansi-zhenduan	-	83.4	baseline	-	结构62.7+dim8(20.7); dim4=5最弱	dry_run
+2026-07-17T23:35	10a8d23	faxian-moshi	79.9	86.4	keep	dim4+dim3+dim5	加检查点+补全判停分支	dry_run
+2026-07-17T23:45	47d4bea	xuexi-tiwen	79.9	88.1	keep	dim4+dim3+dim5	加检查点+补全判停分支	dry_run
+2026-07-17T23:55	c6293bb	xuexi-fangshi-dengji	81.6	88.7	keep	dim4+dim3+dim5	加检查点+补全判停分支	dry_run
+2026-07-18T00:05	8261497	cankao-daan-siwei	82.2	88.1	keep	dim4+dim3+dim5	加检查点+补全判停分支	dry_run
+2026-07-18T00:15	74883b5	si-wen-xuexi-fa	82.8	89.3	keep	dim4+dim3+dim5	加检查点+补全判停分支	dry_run
+2026-07-18T00:25	52b6ca6	moshi-jujiao-xuexi	84.6	90.5	keep	dim4+dim3+dim5	加2处检查点	dry_run
+2026-07-18T00:35	46e77ab	hudong-xuexi-talks	85.8	89.9	keep	dim4+dim5	加2处检查点	dry_run
+2026-07-18T00:45	f5ee8c3	fansi-zhenduan	83.4	88.1	keep	dim4+dim3+dim5	加检查点+分支B判停	dry_run
