@@ -1,0 +1,52 @@
+{
+  "skill": "xuexi-fangshi-dengji",
+  "version": "0.1.0",
+  "source_book": "《学会如何学习：120堂认知升级课》刘澜",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我每天通勤听40分钟得到课，听完觉得很充实，但一年下来感觉没记住什么，听书到底算不算学习？",
+      "expected_behavior": "应激活 xuexi-fangshi-dengji, 并诊断听书主要是被动学习，能加的主动学习有限。处方：听书可作补充但不能作主要手段，想真吸收一本书必须回到读书（可上探建构/互动层级）",
+      "notes": "典型'听书算学习吗'，A2 触发场景第5条+SKILL.md ce07 案例，trigger 词'听书''算不算学习'命中"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司让我们部门搞行动学习项目，一群人讨论半天也没产出，每次都是几个人说几句就散了，是不是哪里出了问题？",
+      "expected_behavior": "应激活 xuexi-fangshi-dengji, 并诊断：行动学习就是协作式学习（最高级），参与者很可能连被动/主动/建构/互动各基本层级都没掌握，所以潜力 200 实际只得 80。处方：先评估参与者层级，逐级升级，别直接上协作式",
+      "notes": "'行动学习项目推不动'是 A2 触发场景第3条+SKILL.md ce04 案例，trigger 词'行动学习''推不动'命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我对几个管理模型挺熟的，什么 SWOT、PDCA 都能讲，但最近被领导追问'你这个场景下到底用哪个'就答不上来，是不是其实没真掌握？",
+      "expected_behavior": "应激活 xuexi-fangshi-dengji, 并用四种'我知道'诊断——用户处在低层次'我知道我知道'（运用自如的虚假掌握，ce15）。掌握越浅越易觉得掌握。处方：从'我知道我知道'跨越到'我知道我不知道'，说出一个自己尚不知道的具体点",
+      "notes": "'运用自如的虚假掌握'是 A2 触发场景第4条+SKILL.md ce15 案例，trigger 词'挺熟''没真掌握'命中"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "明天部门要开复盘会，我每次这种会都插不上话，我该在讨论里做点什么？怎么提问才不伤关系？",
+      "expected_behavior": "不应激活本 skill, 应激活 hudong-xuexi-talks（互动学习 TALKS）——这是互动层的具体操作工具（TALKS 五要素、讨论型问题三自问、变质疑为请教），不是层级诊断",
+      "notes": "跨 skill 诱饵指向 hudong-xuexi-talks：'讨论里做什么''怎么提问不伤关系'是互动层操作话术，本 skill 只把互动定位在等级模型中，不展开操作"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我刚听完一节20分钟讲复盘的课，该怎么把它用起来？",
+      "expected_behavior": "不应激活本 skill, 应激活 si-wen-xuexi-fa（四问学习法）——这是单次学习流程的执行（听→找→变→用），不是学习方式层级诊断",
+      "notes": "诱饵类型：单次学习流程的执行，SKILL.md 明确列为不适用场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我看小视频学做饭，感觉学得挺快，一周学会了好几个菜，这算什么学习层级？",
+      "expected_behavior": "可激活 xuexi-fangshi-dengji，但 agent 应说明：小视频对模式化知识（管理、理论）的传递有限，但对程序性技能（做饭、操作步骤）可上探到主动甚至建构层级（跟着做=实践）。边界在于：本 skill 的等级模型主要针对知识学习，对技能学习需用户自行迁移",
+      "notes": "边界：SKILL.md ce06 批评小视频学习是针对模式化知识，但程序性技能用小视频学习是合理的。应触发本 skill 但说明适用边界"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

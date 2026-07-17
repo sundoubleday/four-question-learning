@@ -1,0 +1,52 @@
+{
+  "skill": "xuexi-tiwen",
+  "version": "0.1.0",
+  "source_book": "《学会如何学习：120堂认知升级课》刘澜",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这本书我读完了，让我讲我也能讲个大概，但总觉得没真学到，怎么知道学习是不是真发生了？",
+      "expected_behavior": "应激活 xuexi-tiwen, 并用三维度体检：认知（新旧如何联系）/情感（认知融合带来的情感变化）/行为（应有行为与现有行为有何不同）。三个维度都能答出才算体温合格，否则该维度体温不足",
+      "notes": "典型'怎么知道学习真发生了'，A2 触发场景第1条，trigger 词'没真学到''真发生'命中"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我分享读书心得，朋友说我讲得像知识博物馆，都是别人的话，没有我自己的东西，我哪里出问题了？",
+      "expected_behavior": "应激活 xuexi-tiwen, 并用'切己=己+切'框架诊断：用户可能在'己'（举自己的例子）上不够，或在'切'（建立新旧认知/情感/行为联系）上不够。引导说出'我以前以为 X，听了 Y 之后发现 Z，所以现在打算 W'的完整链条",
+      "notes": "'分享时发现体温不足'是 A2 触发场景第2条+SKILL.md ce16 案例，命中 trigger 词'没自己的东西'"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我对'反馈要先讲事实不要先评价'这个道理挺有感触，但一遇到下属犯错我还是先发火，感觉懂和做是两回事。",
+      "expected_behavior": "应激活 xuexi-tiwen, 并诊断：行为维度体温不足——认知动了（懂道理）但行为没动（一遇情境还是老样子）。重点引导问'情感在多大程度上阻碍了行为转变'——可能是焦虑/愤怒的情绪阻碍了行为",
+      "notes": "'懂了用不起来'是 A2 触发场景第3条，命中 SKILL.md 中'行为维度不足'的典型表现"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "上周项目失败后我一直很焦虑，想反思但不知道从哪开始，每次想到的都是些琐碎的细节，理不出头绪。",
+      "expected_behavior": "不应激活本 skill, 应激活 fansi-zhenduan（反思与诊断）——这是失败后的反思诊断（三环反思+负面情绪信号），不是检验学习是否真发生",
+      "notes": "跨 skill 诱饵指向 fansi-zhenduan：'失败后想反思''焦虑'是失败后反思场景，本 skill 是状态检验而非失败后问诊"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我刚接触机器学习，啥都不懂，该怎么入门？",
+      "expected_behavior": "不应激活本 skill, 因为初次接触新领域还没有'旧'可对照，三维度互动无从谈起。应先做垒基学习（见 moshi-jujiao-xuexi）",
+      "notes": "诱饵类型：初次接触新领域，SKILL.md 明确列为不适用场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我对'复利'这个概念挺感兴趣，查了很多资料，能讲清楚定义和公式，但说不出它和我自己的生活有什么关系。",
+      "expected_behavior": "应激活 xuexi-tiwen, 因为用户已有资料输入且能讲清楚定义（认知维度有动），但'说不出和我生活有什么关系'是切己不够——在'己'和'切'上不够。诊断：认知维度合格，但情感和行为维度体温不足。引导问'复利让我对什么人/事产生了什么新的情感''我以前怎么做现在打算怎么做'",
+      "notes": "边界：介于'体温不足'（本 skill）和'该学什么'（moshi-jujiao-xuexi）之间。但用户已学过资料，问题是'和我生活有什么关系'=切己不够，倾向本 skill"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

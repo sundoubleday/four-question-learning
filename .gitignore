@@ -1,0 +1,23 @@
+# 蒸馏过程的中间产物 / 构建脚本，不进发布仓库
+.blind-test/
+candidates/
+rejected/
+PIPELINE_STATE.md
+verified.md
+BOOK_OVERVIEW.md
+.cangjie-work/
+
+# 原书文件绝不上传（版权）
+*.epub
+*.mobi
+*.azw3
+*.pdf
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+node_modules/
+dist/

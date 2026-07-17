@@ -1,0 +1,52 @@
+{
+  "skill": "hudong-xuexi-talks",
+  "version": "0.1.0",
+  "source_book": "《学会如何学习：120堂认知升级课》刘澜",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "明天部门要开一个头脑风暴会，我每次这种会都插不上话，我该做点什么才能在讨论里有贡献？",
+      "expected_behavior": "应激活 hudong-xuexi-talks 分支1（TALKS），重点引导做 S（总结）——让用户问自己刚才做了 T/A/L/K 中的哪几件、缺哪件，再用一句话总结大家观点的分歧和关系。S 是高阶学习力也是最难的",
+      "notes": "典型'讨论时该做什么'，A2 触发场景第1条，trigger 词'讨论''插不上话''有贡献'命中"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我想在会上给同事提个不同意见，又怕被他当成我在挑刺，怎么提问才不伤关系？",
+      "expected_behavior": "应激活 hudong-xuexi-talks 分支2（三自问筛选）+分支3（变质疑为请教），引导用户：①先用三自问筛选（有助于我学习？对方学习？不损害关系？）②把'你这样不对'改成请教句式'你具体打算怎么做？为什么这么做好？还有没有更好的方法？'",
+      "notes": "'提问怕伤关系'是 A2 触发场景第2条，trigger 词'提不同意见''不伤关系'命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我在群里分享读完的书，结果被人说'又在显摆'，分享到底该怎么分享才对？",
+      "expected_behavior": "应激活 hudong-xuexi-talks 分支4（给予式分享），引导用户按格式准备：我学到什么+为什么觉得好+如何帮我把问题想清+如何让我更好行动+还有什么困惑。检查是否变成'拿困惑索取建议'",
+      "notes": "'分享变炫耀'是 A2 触发场景第4条+SKILL.md 索取式分享案例，trigger 词'分享''显摆'命中"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "群里有人转一篇文章说'内向的人其实更适合当领导'，我觉得挺扯的，但不知道该怎么反驳，这道理该不该信？",
+      "expected_behavior": "不应激活本 skill, 应激活 cankao-daan-siwei（参考答案思维方式）——这是对待道理的态度问题（该不该信、隐含假设、反过来想），不是互动场景的操作工具",
+      "notes": "跨 skill 诱饵指向 cankao-daan-siwei：'该不该信''怎么反驳'是态度底座问题，本 skill 是互动操作工具"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "明天下午3点的会议改到几点了？谁参加？",
+      "expected_behavior": "不应激活本 skill, 因为这是纯信息交流（传递事实），不需要 TALKS 或变质疑为请教",
+      "notes": "诱饵类型：纯信息交流，SKILL.md 明确列为不适用场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我下属最近状态不好，我想给他点反馈，但又怕打击他，该怎么开口？",
+      "expected_behavior": "边界判断：本 skill 主要处理'收反馈'（三点法）和'互动学习场景'，'给反馈'是边界。agent 可触发本 skill 但应说明：给反馈建议用 SBI 模型（Situation-Behavior-Impact），本 skill 的三点法是收反馈的工具，方向相反。两者配合使用——给反馈用 SBI，收反馈用三点法",
+      "notes": "边界：SKILL.md 明示'反馈三明治/SBI 是给反馈的工具，本 skill 三点法是收反馈的工具——方向相反'。应触发本 skill 但说明边界并建议配合 SBI"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

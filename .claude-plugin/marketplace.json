@@ -1,0 +1,92 @@
+{
+  "name": "xuehui-ruhe-xuexi-skills",
+  "owner": {
+    "name": "xiatian"
+  },
+  "metadata": {
+    "description": "学会如何学习 — 从刘澜《学会如何学习：120堂认知升级课》蒸馏出的 8 个学习类 Skills，以四问学习法为主框架，把听到的知识真正用起来。",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "si-wen-xuexi-fa",
+      "description": "四问学习法（听→找→变→用），把听到的知识真正用起来的主框架/枢纽。其余 7 个 skill 都建立在它之上。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "learning",
+      "keywords": ["learning", "core-tool", "application", "transfer", "chinese"],
+      "skills": ["./skills/si-wen-xuexi-fa"]
+    },
+    {
+      "name": "faxian-moshi",
+      "description": "发现模式：分析问题第二步的核心。不是直接找原因，而是先发现模式，在模式指导下找原因和找答案。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "learning",
+      "keywords": ["pattern", "problem-analysis", "root-cause", "chinese"],
+      "skills": ["./skills/faxian-moshi"]
+    },
+    {
+      "name": "moshi-jujiao-xuexi",
+      "description": "模式化学习与聚焦：学什么、学多少、聚焦哪里，看家模式与大盗式学习。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "learning",
+      "keywords": ["focus", "signature-pattern", "learning-strategy", "chinese"],
+      "skills": ["./skills/moshi-jujiao-xuexi"]
+    },
+    {
+      "name": "xuexi-fangshi-dengji",
+      "description": "学习方式等级模型：诊断你的学习在被动/主动/建构/互动/协作第几层，以及如何升级。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "learning",
+      "keywords": ["learning-level", "diagnosis", "active-learning", "chinese"],
+      "skills": ["./skills/xuexi-fangshi-dengji"]
+    },
+    {
+      "name": "xuexi-tiwen",
+      "description": "学习要有体温：从认知/情感/行为三个维度检验学习是否真发生。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "learning",
+      "keywords": ["learning-check", "cognition-emotion-behavior", "chinese"],
+      "skills": ["./skills/xuexi-tiwen"]
+    },
+    {
+      "name": "cankao-daan-siwei",
+      "description": "参考答案思维方式：没有标准答案只有参考答案，六策略、反过来想、正反合。学习的思维底座。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "learning",
+      "keywords": ["reference-answer", "critical-thinking", "dialectics", "chinese"],
+      "skills": ["./skills/cankao-daan-siwei"]
+    },
+    {
+      "name": "hudong-xuexi-talks",
+      "description": "互动学习 TALKS：讨论五要素、交流四模式、变质疑为请教、给予式分享与接受反馈。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "learning",
+      "keywords": ["interactive-learning", "discussion", "feedback", "chinese"],
+      "skills": ["./skills/hudong-xuexi-talks"]
+    },
+    {
+      "name": "fansi-zhenduan",
+      "description": "反思与诊断：三环学习反思、负面情绪是学习信号、学习导向诊断。学不下去时的排障工具。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "learning",
+      "keywords": ["reflection", "diagnosis", "triple-loop", "chinese"],
+      "skills": ["./skills/fansi-zhenduan"]
+    }
+  ]
+}

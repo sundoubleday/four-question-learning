@@ -1,0 +1,52 @@
+{
+  "skill": "fansi-zhenduan",
+  "version": "0.1.0",
+  "source_book": "《学会如何学习：120堂认知升级课》刘澜",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "上个月一个大客户丢了，我一直在想哪里出了问题，但脑子里全是当时的细节，理不出头绪，该怎么反思？",
+      "expected_behavior": "应激活 fansi-zhenduan 分支A（三步反思法），并诊断用户卡在单环（复盘行动），缺目标和心智模式层。引导：①捕捉具体情绪②正面化③三环反思——重点走到第三环'我追求这个目标的底层心智模式合理吗'",
+      "notes": "典型'失败后想反思不知从哪反思'，A2 触发场景第1条+SKILL.md X 同学案例，trigger 词'反思''理不出头绪'命中"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我学了三年管理，越学越没劲，最近一看书就犯困，我是不是动机出了问题？",
+      "expected_behavior": "应激活 fansi-zhenduan 分支B（学习导向诊断），引导用户列出最近学的3-5样东西，逐个问'学这个是为了什么'，对照八种导向归类。再用三面镜子（博物馆式/贪官式/天文学家式）检视是否学了为教别人而非自己用",
+      "notes": "'学不下去/怀疑动机'是 A2 触发场景第2条+SKILL.md C 同学案例，trigger 词'学不下去''动机'命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我下属换了好几个了，都说跟我不合，我自己看不出问题在哪，怎么诊断到底哪里出了问题？",
+      "expected_behavior": "应激活 fansi-zhenduan 分支C（帮别人诊断→区分两种困惑），引导用户：①先听表达出来的困惑（下属说了什么）②再观察表现出来的困惑（下属不自知但行为暴露的问题，如反复换人说明问题可能在用户自己的心智模式）③诊断后开方，针对具体情况而非通用模型",
+      "notes": "'帮别人诊断/反复失败'是 A2 触发场景第4条+SKILL.md 第104课'两种困惑'，trigger 词'看不出问题''诊断'命中"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我每天听课、读书、看公众号，输入量挺大的，但感觉进步很慢，我的学习是不是卡在某个层级上了？",
+      "expected_behavior": "不应激活本 skill, 应激活 xuexi-fangshi-dengji（学习方式等级）——这是学习层级诊断（被动/主动/建构/互动/实践/协作哪一层），不是动机或失败反思",
+      "notes": "跨 skill 诱饵指向 xuexi-fangshi-dengji：'卡在某个层级'是层级诊断，本 skill 诊断动机和失败反思，前者回答'在哪一层'，后者回答'为什么学不下去、失败后改什么'"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "代码跑不起来，报了个 NullPointerException，该怎么调试？",
+      "expected_behavior": "不应激活本 skill, 因为这是纯技术问题排查，需要查文档、问专家，不需要三环反思",
+      "notes": "诱饵类型：纯技术问题，SKILL.md 明确列为不适用场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我第一次做公开演讲，紧张到忘词，该怎么反思这次失败？",
+      "expected_behavior": "可激活 fansi-zhenduan，但 agent 应提示：首次失败往往是信息不足或技能生疏，反思到'行动层'即可（换方法：多练、备稿、提前试讲），不必走到目标和心智模式层。只有同类失败反复出现才需要走到双环和三环。可联动本 skill 分支A 的单环层",
+      "notes": "边界：SKILL.md 明示'首次尝试某事失败'只需行动层反思。应触发本 skill 但提示只需单环，避免过度反思"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

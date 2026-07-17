@@ -1,0 +1,52 @@
+{
+  "skill": "si-wen-xuexi-fa",
+  "version": "0.1.0",
+  "source_book": "《学会如何学习：120堂认知升级课》刘澜",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我刚读完《非暴力沟通》，合上书感觉讲得挺好，但让我说具体怎么用我又说不上来，怎么真的把它用起来？",
+      "expected_behavior": "应激活 si-wen-xuexi-fa, 并引导用户走四步：先复述听到的话→找背后模式（可调用 faxian-moshi）→变形成自己的版本→落到一个近期可执行的动作",
+      "notes": "典型'读完不知道怎么用'，trigger 词'用起来'命中主框架"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "今天听了个播客讲复盘方法，讲得挺有启发，但我该怎么把这种东西吸收成自己的，而不是听完就忘？",
+      "expected_behavior": "应激活 si-wen-xuexi-fa, 并按听→找→变→用四步引导，重点在'变'和'用'两步把别人的方法落到自己的工作情境",
+      "notes": "'听到一个观点该怎么吸收'是 A2 触发场景第2条，'吸收'是 trigger 词"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我这两年学了一堆管理理论，可一带团队还是凭直觉，这些东西怎么才能真用上？",
+      "expected_behavior": "应激活 si-wen-xuexi-fa, 并诊断'学了一堆用不起来'是假学习的信号，引导用户选一个理论走完四步，不接受'我会注意'这种模糊承诺",
+      "notes": "'学了很多用不上'是 A2 触发场景第3条，命中 trigger 词'用不起来/学以致用'"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "团队最近反复出同一个协调问题，我列了五六个原因，但每个都像是表面现象，根本原因到底是什么？",
+      "expected_behavior": "不应激活本 skill, 应激活 faxian-moshi（发现模式）——用户已卡在'找'这一步，需要专门深化找模式的三方向，而非走完整四步流程",
+      "notes": "跨 skill 诱饵指向 faxian-moshi：用户明确卡在'找背后模式'，且表述是单点深化而非整体流程"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "《原则》这本书的作者是谁？达利欧是哪国人？",
+      "expected_behavior": "不应激活本 skill, 因为这是纯信息查询，不需要四步流程",
+      "notes": "诱饵类型：纯事实查询，SKILL.md 明确列为不适用场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我听到一个观点说'管理者要少做事多带人'，挺有启发，但不知道适不适合我现在的处境。",
+      "expected_behavior": "应激活 si-wen-xuexi-fa（主框架），因为用户已经有'想用'的倾向，'不知道适不适合'正是'变'的环节——把模式变形成适合自己的版本。但 agent 应注意：若用户进一步问'这个道理该不该信'，则切换到 cankao-daan-siwei",
+      "notes": "边界：介于'想用起来'（主框架）和'该不该信'（参考答案思维方式）之间。用户的'挺有启发'+'不知道适不适合我'是变型环节的典型表述，倾向主框架"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

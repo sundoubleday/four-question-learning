@@ -1,0 +1,52 @@
+{
+  "skill": "cankao-daan-siwei",
+  "version": "0.1.0",
+  "source_book": "《学会如何学习：120堂认知升级课》刘澜",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我老板说做产品要'快速迭代小步快跑'，但另一个前辈说'想清楚再做别瞎试'，这俩相反的道理我该信谁？",
+      "expected_behavior": "应激活 cankao-daan-siwei, 并引导：①发现隐含假设（两个道理各建立在什么假设上）②反过来想（各自在什么条件下也对）③正反合——拒绝'看情况'，找一个具体合成模式（如用管理者三大能力模型分层：基层快速迭代、高管想清楚再做）",
+      "notes": "典型'两个相反道理'，A2 触发场景第4条+SKILL.md 案例2 YGB 同学'行百里者半九十'，trigger 词'相反的道理''该信谁'命中"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "看了一篇爆款文章说'早起5点能改变人生'，我该不该信？要不要开始5点起床？",
+      "expected_behavior": "应激活 cankao-daan-siwei, 并引导发现隐含假设（早起=改变人生建立在什么假设上？假设一定成立吗？）+王阳明'因病开方'——别人的方子用到自己身上会医死人。提示用户先问'我的实际问题是什么'而非'该不该信这个道理'",
+      "notes": "'这个道理该不该信'是 A2 触发场景第1条+SKILL.md ce24 案例，trigger 词'该不该信'命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我觉得我对 PDCA 已经运用自如了，随便什么问题我都能套进去，是不是真掌握了？",
+      "expected_behavior": "应激活 cankao-daan-siwei, 并用'第四种谦虚'+'尚未心态'诊断——'运用自如'是低层次的'我知道我知道'（ce15）。引导把'我运用自如了'改写为'我尚未运用自如'，并问'面对未来的自己，我现在的判断可能哪里会被否定'",
+      "notes": "'运用自如的虚假掌握'是 A2 触发场景第3条+SKILL.md ce15/S 同学案例，trigger 词'运用自如''真掌握'命中"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我刚读完《番茄工作法》这本书，讲得挺好，想真的把它用起来，该怎么开始？",
+      "expected_behavior": "不应激活本 skill, 应激活 si-wen-xuexi-fa（四问学习法）——这是完整四步流程（听→找→变→用），不是对待答案的态度问题",
+      "notes": "跨 skill 诱饵指向 si-wen-xuexi-fa：'读完想用起来'是流程问题，本 skill 是态度底座"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "北京到上海坐高铁大概多久？",
+      "expected_behavior": "不应激活本 skill, 因为这是纯事实查询，不需要六策略反思",
+      "notes": "诱饵类型：纯事实查询，SKILL.md 明确列为不适用场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我女儿问我1+1为什么等于2，老师就这么教的，她说一定要当标准答案背下来，这也要当参考答案吗？",
+      "expected_behavior": "不应激活本 skill（或仅作边界说明）。数学/逻辑证明的结论是标准答案，不是参考答案——SKILL.md 明确列为不适用场景。但 agent 应说明边界：对'数学证明结论'确实有标准答案，但'老师让你背下来'这个教学方式本身可以当参考答案来反思",
+      "notes": "边界：SKILL.md 明确数学/逻辑证明是本 skill 的边界。借此区分'演绎证明的结论'与'经验性道理'的差别"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

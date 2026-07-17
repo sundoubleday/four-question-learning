@@ -1,0 +1,52 @@
+{
+  "skill": "moshi-jujiao-xuexi",
+  "version": "0.1.0",
+  "source_book": "《学会如何学习：120堂认知升级课》刘澜",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我书架上躺着30多本没读的管理书，感觉每本都该读，又都不知道该先读哪本，该怎么挑？",
+      "expected_behavior": "应激活 moshi-jujiao-xuexi, 并引导用户：①盘点已有看家模式（若没有则先垒基）②按聚焦三环（擅长×热爱×机会）选一个小专题③围绕该专题大盗式读 5-10 本核心书建立模式树，而非追求读书数量",
+      "notes": "典型'面对一堆待学不知选哪个'，A2 触发场景第1条"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这两年报了5个付费课程，每个都学了一半就放下，感觉什么都没学透，是不是太散了？",
+      "expected_behavior": "应激活 moshi-jujiao-xuexi, 并诊断'同时学太多本领（ce09）'——没有看家模式前就分散精力。引导先选一个聚焦专题，慢速垒基，建一棵模式树再扩展",
+      "notes": "'同时学多门效果都不好'是 A2 触发场景第4条，命中 trigger 词'太散''学不透'"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我想认真研究一下'怎么跟下属做一对一沟通'这件事，该读几本书？读到什么程度算够？",
+      "expected_behavior": "应激活 moshi-jujiao-xuexi, 并引导：①专题足够小（一对一沟通而非管理）②先慢速读 5-10 本垒基③再围绕专题读 10-100 本④判断已建看家模式的标准是读第 11 本时是否变快",
+      "notes": "'围绕一个主题深读到什么程度'是 A2 触发场景第3条，trigger 词'读几本''读到什么程度算够'命中"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我读完一本书能复述所有要点，但讲给别人听时总觉得自己没真懂，怎么判断自己是不是真学到了？",
+      "expected_behavior": "不应激活本 skill, 应激活 xuexi-tiwen（学习要有体温）——这是检验学习是否真发生（认知/情感/行为三维度是否动起来），不是选材决策",
+      "notes": "跨 skill 诱饵指向 xuexi-tiwen：'判断是不是真学到了'是状态检验，不是学什么/学多少的战略决策"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我刚读完《深度工作》这本书，挺好的，该怎么把它用起来？",
+      "expected_behavior": "不应激活本 skill, 应激活 si-wen-xuexi-fa（四问学习法）——这是单次内容的吸收流程（听→找→变→用），不是'该学什么'的选材决策",
+      "notes": "诱饵类型：单次内容吸收流程，SKILL.md 明确列为不适用场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我想成为好的管理者，该读什么书？",
+      "expected_behavior": "可激活 moshi-jujiao-xuexi，但 agent 应立刻指出'好的管理者'专题太大、三环未聚焦——引导用户先按擅长×热爱×机会三环找一个小交叉点（如'B2B 销售团队的目标管理'），再谈读什么书。若用户进一步说'其实我想先听听别人怎么管团队的'，则可能切到 si-wen-xuexi-fa 单次吸收流程",
+      "notes": "边界：专题太大且三环未聚焦，是本 skill 的典型判停条件。应触发本 skill 但先做聚焦三环的细化"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}
