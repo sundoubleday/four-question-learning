@@ -51,7 +51,9 @@
 
 一条主轴（四问学习法）贯穿始终，其余 7 个工具挂在它的某一步上，或作为排障/升级工具随手调用。
 
-📌 **使用地图（一图看清 8 个 skill 的关系）**：[`skills/si-wen-xuexi-fa/assets/usage-map.png`](skills/si-wen-xuexi-fa/assets/usage-map.png)
+📌 **使用地图：一图看清 8 个 skill 的关系**
+
+![使用地图：一图看清 8 个 skill 的关系](skills/si-wen-xuexi-fa/assets/usage-map.png)
 
 | 工作目标 | 主要入口 | 角色 |
 |---|---|---|
