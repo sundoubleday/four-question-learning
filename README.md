@@ -82,14 +82,14 @@ cp -r skills/* ~/.workbuddy/skills/
 方式二（若你的 Agent 支持 skills CLI）：
 
 ```bash
-npx -y skills add sundoubleday/xuehui-ruhe-xuexi-skills -g --all
+npx -y skills add sundoubleday/four-question-learning -g --all
 ```
 
 ### Claude Code 插件市场
 
 ```bash
-claude plugin marketplace add sundoubleday/xuehui-ruhe-xuexi-skills
-claude plugin install si-wen-xuexi-fa@xuehui-ruhe-xuexi-skills
+claude plugin marketplace add sundoubleday/four-question-learning
+claude plugin install si-wen-xuexi-fa@four-question-learning
 ```
 
 > 安装命令中的默认用户名为 `sundoubleday`；若你的 GitHub 用户名不同，把它替换掉即可。
@@ -117,7 +117,7 @@ claude plugin install si-wen-xuexi-fa@xuehui-ruhe-xuexi-skills
 ## 项目结构
 
 ```
-xuehui-ruhe-xuexi-skills/
+four-question-learning/
 ├── skills/                     # 8 个可直接调用的 Skills（每个 = 一个文件夹）
 │   ├── si-wen-xuexi-fa/        # ★ 主框架，含 assets/usage-map.svg 使用地图
 │   ├── faxian-moshi/
