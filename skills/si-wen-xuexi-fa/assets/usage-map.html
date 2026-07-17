@@ -1,9 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四问学习法使用地图</title>
+<style>
+  :root { --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #FAFAF9;
+    font-family: var(--font-sans);
+    padding: 24px;
+    color: #3C3489;
+  }
+  h1 { font-size: 18px; font-weight: 600; margin: 0 0 16px; }
+  .map { width: 100%; max-width: 760px; }
+  svg { width: 100%; height: auto; display: block; }
+  text { font-family: var(--font-sans); }
+  .hint { font-size: 12px; color: #5F5E5A; margin-top: 12px; text-align: center; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #1C1B22; color: #C9C5F0; }
+    .hint { color: #9C99B8; }
+  }
+</style>
+</head>
+<body>
+<h1>四问学习法使用地图</h1>
+<div class="map">
 <svg viewBox="0 0 680 372" width="100%" role="img" xmlns="http://www.w3.org/2000/svg">
 <title>四问学习法使用地图</title>
 <desc>以四问学习法为主轴，听找变用四步各挂一个深化工具，底部为排障与升级工具。</desc>
-<style>
-  text { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; }
-</style>
 <defs>
 <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
 <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -12,13 +44,13 @@
 
 <g class="node" onclick="sendPrompt('用四问学习法帮我分析我最近听的一本书，把它真正用起来')" style="cursor:pointer">
 <rect x="170" y="40" width="340" height="50" rx="10" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
-<text x="340" y="60" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#3C3489">四问学习法 · 主框架</text>
-<text x="340" y="77" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#534AB7">听 → 找 → 变 → 用</text>
+<text x="340" y="60" text-anchor="middle" dominant-baseline="central" font-family="var(--font-sans)" font-size="14" font-weight="500" fill="#3C3489">四问学习法 · 主框架</text>
+<text x="340" y="77" text-anchor="middle" dominant-baseline="central" font-family="var(--font-sans)" font-size="12" fill="#534AB7">听 → 找 → 变 → 用</text>
 </g>
 
 <path class="arr" d="M340 90 L340 108" fill="none" stroke="#534AB7" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-<g>
+<g font-family="var(--font-sans)">
 <rect x="40" y="112" width="135" height="50" rx="8" fill="#CECBF6" stroke="#534AB7" stroke-width="0.5"/>
 <text x="107" y="130" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#26215C">① 听</text>
 <text x="107" y="148" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#3C3489">收进来</text>
@@ -41,7 +73,7 @@
 <path class="arr" d="M417 162 L417 190" fill="none" stroke="#0F6E56" stroke-width="1.5" marker-end="url(#arrow)"/>
 <path class="arr" d="M572 162 L572 190" fill="none" stroke="#0F6E56" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-<g>
+<g font-family="var(--font-sans)">
 <g class="node" onclick="sendPrompt('我要学一个新领域，帮我用看家模式判断学什么、学多少、聚焦哪里')" style="cursor:pointer">
 <rect x="40" y="192" width="135" height="52" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
 <text x="107" y="211" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#085041">模式化学习</text>
@@ -65,9 +97,9 @@
 </g>
 
 <line x1="40" y1="272" x2="640" y2="272" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="3 3"/>
-<text x="40" y="286" font-size="12" fill="#5F5E5A">卡住时 / 想升级时随手调用：</text>
+<text x="40" y="286" font-family="var(--font-sans)" font-size="12" fill="#5F5E5A">卡住时 / 想升级时随手调用：</text>
 
-<g>
+<g font-family="var(--font-sans)">
 <g class="node" onclick="sendPrompt('我学不下去了，也说不出学到什么，帮我做一次反思诊断')" style="cursor:pointer">
 <rect x="40" y="298" width="185" height="50" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
 <text x="132" y="316" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#633806">反思与诊断</text>
@@ -85,3 +117,31 @@
 </g>
 </g>
 </svg>
+</div>
+<p class="hint">点击任意节点可复制对应提示词，粘贴到对话框即可调用对应 skill。</p>
+<script>
+  // 兜底：在 GitHub raw / 本地浏览器打开时，sendPrompt 未被宿主环境定义，
+  // 这里把它降级为「复制提示词到剪贴板」，让地图在面板外也好用。
+  function sendPrompt(p){
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(p).then(function(){
+          alert('已复制提示词，去对话框粘贴：\n\n' + p);
+        }).catch(function(){ fallbackCopy(p); });
+      } else {
+        fallbackCopy(p);
+      }
+    } catch (e) {
+      fallbackCopy(p);
+    }
+  }
+  function fallbackCopy(p){
+    var t = document.createElement('textarea');
+    t.value = p; document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); alert('已复制提示词，去对话框粘贴：\n\n' + p); }
+    catch (e) { prompt('请手动复制这段提示词：', p); }
+    document.body.removeChild(t);
+  }
+</script>
+</body>
+</html>
