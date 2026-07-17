@@ -82,17 +82,17 @@ cp -r skills/* ~/.workbuddy/skills/
 方式二（若你的 Agent 支持 skills CLI）：
 
 ```bash
-npx -y skills add xiatian/xuehui-ruhe-xuexi-skills -g --all
+npx -y skills add sundoubleday/xuehui-ruhe-xuexi-skills -g --all
 ```
 
 ### Claude Code 插件市场
 
 ```bash
-claude plugin marketplace add xiatian/xuehui-ruhe-xuexi-skills
+claude plugin marketplace add sundoubleday/xuehui-ruhe-xuexi-skills
 claude plugin install si-wen-xuexi-fa@xuehui-ruhe-xuexi-skills
 ```
 
-> 安装命令中的默认用户名为 `xiatian`；若你的 GitHub 用户名不同，把它替换掉即可。
+> 安装命令中的默认用户名为 `sundoubleday`；若你的 GitHub 用户名不同，把它替换掉即可。
 
 ---
 
