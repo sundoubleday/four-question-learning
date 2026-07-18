@@ -5,8 +5,8 @@ description: |
   不适用于：纯信息查询、紧急指令下达、单纯情感倾诉。
   关键 trigger 词：讨论、辩论、提问、请教、质疑、分享、反馈、评价、TALKS、discussion、ask for advice、feedback。
   这是主框架 `si-wen-xuexi-fa` 在"互动学习"层的方向 skill，提供学习方式等级模型中"互动学习"层的具体操作工具集。
-source_book: 《学会如何学习：120堂认知升级课》刘澜
-source_chapter: 第17课、第23课、第36课、第42课、第44-49课、第59-60课
+source_book: 《学会如何学习：120堂认知升级课》刘澜；《反向学习：学习力的五项修炼》刘澜（第二章）
+source_chapter: 学会如何学习·第17/23/36/42/44-49/59-60课；反向学习·第二章（互动学习是参考答案思维方式六策略之一，替代"单人学习"坏习惯）
 tags: [learning, interaction, discussion, questioning, feedback, sharing]
 related_skills: [si-wen-xuexi-fa, xuexi-fangshi-dengji, cankao-daan-siwei]
 ---
@@ -18,7 +18,12 @@ related_skills: [si-wen-xuexi-fa, xuexi-fangshi-dengji, cankao-daan-siwei]
 > "用TALK来概括讨论时要做的事情：T指告诉，A指询问，L指倾听，K指保持一个开放的心态。我现在觉得可以加上一个S：S指总结大家发表过的观点……S是最难的。"
 > "讨论模式建立在这样一个假设之上：没有人完全掌握了真理。"
 >
-> — 刘澜，第17课、第44课
+> — 刘澜，《学会如何学习》第17课、第44课
+
+> "参考答案思维方式的六个主要策略：洞见分类、标准参考答案、**互动学习**、注重过程而非结果、发现隐含的假设、反过来想。"
+> "学校教育不鼓励讨论，根本原因还是标准答案思维方式和容器装水式学习观。"
+>
+> — 刘澜，《反向学习：学习力的五项修炼》第二章（机械工业出版社，2025）
 
 ---
 
