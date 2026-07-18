@@ -51,6 +51,8 @@
 
 一条主轴（四问学习法）贯穿始终，其余 7 个工具挂在它的某一步上，或作为排障/升级工具随手调用。
 
+> 🧠 **每个 skill 都含一层「刘澜视角（作者思维透镜）」**：用 huashu-nuwa 的五元组提取手法，从两本书提炼出刘澜的思维框架（心智模型 / 决策启发式 / 表达 DNA / 反模式 / 诚实边界），叠加在方法之上。让工具既有"怎么做"（cangjie 蒸馏的方法原子），也有"刘澜会怎么看"（作者思维透镜）。详见 [docs/liulan-thinking-framework.md](docs/liulan-thinking-framework.md)。
+
 📌 **使用地图：一图看清 8 个 skill 的关系**
 
 ![使用地图：一图看清 8 个 skill 的关系](skills/si-wen-xuexi-fa/assets/usage-map.png)
